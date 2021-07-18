@@ -28,4 +28,24 @@ int main()
 		}
 		cout << endl;
 	}
+	queue<int> que;
+	vector<int> dis(N, -1);
+	que.push(0);
+	dis[0] = 0;
+
+	while(!que.empty()){
+		int i = que.front();
+		que.pop();
+		for(int x: G[t]) if (dis[x] == -1){
+			dis[x] = dis[t] + 1;
+			que.push(x);
+		}
+	}
+
+	for(int i = 0; i < Q; i++)
+	{
+		int A, B; cin >> A>>B;
+		if(dis[A-1] % 2 == dis[B-1]%2) cout << "Town" << endl;
+		if(dis[A-1] % 2 != dis[B-1]%2) cout << "Road" << endl;
+	}
 }

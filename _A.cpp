@@ -5,24 +5,15 @@ template<class T>bool chmax(T &a, const T &b){if(a>b){a=b; return 1;} return 0;}
 template<class T>bool chmin(T &a, const T &b){if(b<a){a=b; return 1;} return 0;}
 
 int main(){
-	ll a,b,c;
-	cin >> a>> b >> c;
-	ll e,f;
-	e = b - a;
-	f = c - b;
-	if(e < f){
-		if(abs(f - e) % 2 == 1){
-			cout << abs(f - e) / 2 + 2<< endl;
-		}
-		else {
-			cout << abs(f - e) / 2<< endl;
-		}
+	string a, b; cin >> a >> b;
+
+	int k=0;
+	int l=0;
+	for(int i = 0; i < 3; i++){
+		l += a[i] - '0';
+		k += b[i] - '0';
 	}
-	else if(e > f){
-		cout << abs(e - f) << endl;
-	}
-	else if (e == f){
-		cout << "0" << endl;
-	}
+
+	cout << max(k, l) << endl;
 
 }
